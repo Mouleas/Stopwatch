@@ -1,0 +1,69 @@
+.container {
+    justify-content: center;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    flex-direction: column;
+}
+.watch {
+    color: white;
+    text-align: center;
+    width: 500px;
+    background-color: #3f531c;
+    border-radius: 10px;
+    padding: 40px;
+    padding-top: 10px;
+}
+#timer {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background-color: #9c986f;
+    color: white;
+    font-size: 2rem;
+}
+#actions {
+    text-align: center;
+}
+
+#actions button {
+    margin: 20px;
+    padding: 7px 20px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+#laps {
+    color: white;
+    text-align: center;
+    width: 500px;
+    height: 150px;
+    overflow-y: scroll;
+}
+
+#lapList {
+    list-style: none;
+    padding: 0;
+}
+
+#lapList li {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #9c986f;
+    margin-top: 10px;
+}
+span {
+    color: #3f531c;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-right: 5px;
+}
