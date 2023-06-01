@@ -87,15 +87,16 @@ function StopWatch() {
     function addLap() {
         let lastLap = laps.at(0);
         let index = 1;
-        if (lastLap){
+        if (lastLap) {
             let { id } = lastLap;
-            index = id+1;
-        } 
+            index = id + 1;
+        }
         setLap((prev) => [
             {
                 id: index,
                 time: time,
-            }, ...prev
+            },
+            ...prev,
         ]);
     }
 
@@ -106,23 +107,21 @@ function StopWatch() {
                 <div id="timer">{time}</div>
                 <div id="actions">
                     <Button
-                        isVisible={isStart}
-                        funcX={startTimer}
-                        funcY={stopTimer}
-                        names={{ x: "Start", y: "Stop" }}
-                    ></Button>
+                        buttonText={isStart ? "Start" : "Stop"}
+                        onClick={isStart ? startTimer : stopTimer}
+                    />
                     <Button
-                        isVisible={isStart}
-                        funcX={resetTimer}
-                        funcY={addLap}
-                        names={{ x: "Reset", y: "Lap" }}
-                    ></Button>
+                        buttonText={isStart ? "Reset" : "Lap"}
+                        onClick={isStart ? resetTimer : addLap}
+                    />
                 </div>
             </div>
             <div id="laps">
                 <ul id="lapList">
                     {laps.map((lap) => (
-                        <li key={lap.id}><span key={lap.id}>{lap.id}.</span>  {lap.time}</li>
+                        <li key={lap.id}>
+                            <span key={lap.id}>{lap.id}.</span> {lap.time}
+                        </li>
                     ))}
                 </ul>
             </div>
