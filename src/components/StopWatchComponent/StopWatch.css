@@ -5,11 +5,39 @@
     align-items: center;
     flex-direction: column;
 }
+
+@keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+}
+
 .watch {
     color: white;
     text-align: center;
     width: 500px;
-    background-color: #3f531c;
+
+    --border-size: 3px;
+    --border-angle: 0turn;
+    animation: bg-spin 3s linear infinite;
+    background-image: conic-gradient(
+      from var(--border-angle),
+      rgb(32, 67, 9, 1),
+      rgb(32, 67, 9, 1) 50%,
+      rgb(32, 67, 9, 1)
+    ),
+    conic-gradient(from var(--border-angle), transparent 20%, rgb(88, 216, 112), rgb(255, 255, 255));
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+
+    background-color: rgba(32, 67, 9, 0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+
     border-radius: 10px;
     padding: 40px;
     padding-top: 10px;
@@ -62,8 +90,43 @@ button:hover {
     margin-top: 10px;
 }
 span {
-    color: #3f531c;
+    color: #375b22;
     font-size: 18px;
     font-weight: bolder;
     margin-right: 5px;
+}
+
+/* --border-size: 3px;
+  --border-angle: 0turn;
+  width: 60vmin;
+  height: 50vmin;
+  background-image: conic-gradient(
+      from var(--border-angle),
+      #213,
+      #112 50%,
+      #213
+    ),
+    conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  animation: bg-spin 3s linear infinite;
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+} */
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
 }
